@@ -8,9 +8,10 @@ git clone https://github.com/ohbus/retail-banking.git ./project_sources/retail-b
 # git clone https://github.com/watabou/pixel-dungeon-gdx.git ./project_sources/pixel-dungeon-gdx
 ```
 
-## Create a virtual environment with poetry
+## Create a virtual environment with poetry and make it visible
 
 ```bash
+poetry config virtualenvs.in-project true
 poetry install
 ```
 
