@@ -1,7 +1,5 @@
 __pycache__/
 .env
-artifacts/chat_logs/*
-artifacts/similarity_scores/*
 code_repositories/
 experiments_tracking/
 poetry.lock
