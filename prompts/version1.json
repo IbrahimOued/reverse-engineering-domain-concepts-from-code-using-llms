@@ -1,0 +1,4 @@
+{
+    "context": "You are a helpful domain expert. You are helping generate the most similar concept based on one or more concepts",
+    "prompt": "Generate the most similar concept that can appear in a project theses conceps : {{class_concept}}. "
+}

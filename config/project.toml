@@ -1,0 +1,21 @@
+# project.toml
+[general]
+domain_threshold = 0.65
+requests_per_minute = 15
+repositories_folder = "code_repositories"
+
+[models]
+embedder = "mixedbread-ai/mxbai-embed-large-v1"
+# llm = "deepseek-coder-1.3b"
+# llm = "gemma-2b"
+# llm = "janai"
+# model = "llamacorn-1.1b"
+# llm = "gemini"
+# model = "gemini-1.5-flash"
+llm = "llama"
+model = "meta-llama/Meta-Llama-3-8B-Instruct"
+
+[prompts]
+prompt_v1 = "prompts/version1.json"
+prompt_v2 = "prompts/version2.json"
+default = "prompts/version1.json"
