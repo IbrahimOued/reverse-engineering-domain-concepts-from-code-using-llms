@@ -4,7 +4,7 @@ from services.interface_llm import InterfaceLLM
 from services.gemini_service import GeminiService
 from services.janai_service import JanAIService
 from services.openai_service import OpenAIService 
-from services.llama_service import LlamaService
+from services.huggingface_service import HuggingFaceService
 
 class LLMService(InterfaceLLM):
 
@@ -16,5 +16,5 @@ class LLMService(InterfaceLLM):
             return GeminiService(model)
         elif service == "janai":
             return JanAIService(model)
-        elif service == "llama":
-            return LlamaService(model)
+        elif service == "huggingface":
+            return HuggingFaceService(model)

@@ -3,6 +3,7 @@
 domain_threshold = 0.65
 requests_per_minute = 15
 repositories_folder = "code_repositories"
+HF_DATASETS_CACHE="/data/rech/ouedraoi"
 
 [models]
 embedder = "mixedbread-ai/mxbai-embed-large-v1"
@@ -12,7 +13,7 @@ embedder = "mixedbread-ai/mxbai-embed-large-v1"
 # model = "llamacorn-1.1b"
 # llm = "gemini"
 # model = "gemini-1.5-flash"
-llm = "llama"
+llm = "huggingface"
 model = "meta-llama/Meta-Llama-3-8B-Instruct"
 
 [prompts]

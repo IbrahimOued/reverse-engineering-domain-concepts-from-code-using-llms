@@ -1,3 +1,5 @@
+import nltk
+nltk.download('wordnet')
 from nltk import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 import stanza
@@ -6,7 +8,7 @@ import stanza
 class CodePreprocessor:
     porter_stemmer = PorterStemmer()
     lemmatizer = WordNetLemmatizer()
-    nlp = stanza.Pipeline(lang='en', processors='tokenize,pos')
+    nlp = stanza.Pipeline(lang='en', processors='tokenize,pos,mwt')
 
     @classmethod
     def stem_token(cls, token):
