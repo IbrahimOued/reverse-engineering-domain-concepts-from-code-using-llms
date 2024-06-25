@@ -1,6 +1,6 @@
 # project.toml
 [general]
-domain_threshold = 0.65
+domain_threshold = 0.6
 requests_per_minute = 15
 repositories_folder = "code_repositories"
 HF_DATASETS_CACHE="/data/rech/ouedraoi"
@@ -20,3 +20,4 @@ model = "meta-llama/Meta-Llama-3-8B-Instruct"
 prompt_v1 = "prompts/version1.json"
 prompt_v2 = "prompts/version2.json"
 default = "prompts/version1.json"
+entrypoint = "prompts/entrypoint.json"
