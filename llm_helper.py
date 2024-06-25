@@ -22,3 +22,18 @@ class LLMHelper:
             log_file.write(f">[user]: {prompt}\n>[{llm}]: {response}\n\n\n")
             log_file.close()
             return response
+
+    def generate_cooccurence_concepts(context, llm, model, log_time):
+        # import the prompt config file
+        with open(config['prompts']['entrypoint']) as f:
+            json_prompt = json.load(f)
+            prompt = json_prompt['prompt']
+            prompt = prompt.replace("{{concept}}", context)
+            llm_service = LLMService.init_llm(llm, model)
+            response = llm_service.generate_llm_response(context=context, prompt=prompt)
+
+            # create a log file to store the class candidate generated
+            log_file = open(f"./artifacts/chat_logs/{log_time}.log", "a")
+            log_file.write(f">[user]: {prompt}\n>[{llm}]: {response}\n\n\n")
+            log_file.close()
+            return response

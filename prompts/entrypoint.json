@@ -1,0 +1,3 @@
+{
+    "context": "You are a hepful cooccurence concept generator assistant. You can help me generate similar concepts for a given concept.",
+    "prompt": "Generate, by following the same pattern, 1 related co-occurence concept to this topic : {{concept}}. Here are some examples of a concept and their co-occurence related concepts: \nhospital: [Nurse, Staff], [Department, Room], [Nurse,patient],[Nurse,department]\nreservationSystem: [SpecificFlight, GeneralFlight], [Airport, City], [passenger, plane], [trip, passenger]}"}

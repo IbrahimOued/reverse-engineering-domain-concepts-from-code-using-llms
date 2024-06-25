@@ -26,23 +26,6 @@ class CustomEmbedder:
         cosine_scores = util.cos_sim(class_1_emb, class_2_emb)
         return cosine_scores.cpu().numpy()[0][0]
 
-    def get_two_most_similar_classes(self, project_name, class_list):
-        # process the two most similar classes in comparison to project name
-        project_name_tokens = project_name.split('_')
-        project_name_emb = self.embedding_model.encode(project_name_tokens, convert_to_tensor=True)
-        max_similarity = 0
-        most_similar_class = None
-        second_most_similar_class = None
-        for class_name, _ in class_list.items():
-            class_name_tokens = class_name.split('_')
-            class_name_emb = self.embedding_model.encode(class_name_tokens, convert_to_tensor=True)
-            similarity = util.cos_sim(project_name_emb, class_name_emb)
-            if similarity > max_similarity:
-                second_most_similar_class = most_similar_class
-                max_similarity = similarity
-                most_similar_class = class_name
-        return most_similar_class, second_most_similar_class
-
 
     def kmean_clustering(self, names, embeddings, n_clusters=4):
         # Perform k-means clustering

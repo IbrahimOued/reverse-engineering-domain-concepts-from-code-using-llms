@@ -3,6 +3,7 @@ from config import project as config
 import argparse
 from utils.extract_signatures import create_signatures_dataframe
 from utils.get_project_paths import get_folder_paths
+from seed_detector.seed_detector import detect_project_seed
 from preprocessing.code_preprocessor import CodePreprocessor
 from custom_models.custom_embedder import CustomEmbedder
 import pandas as pd
@@ -11,21 +12,8 @@ from llm_helper import LLMHelper
 
 
 def main():
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('--path', dest='project_path', type=str, help='Specify the path of the project')
-    # args = parser.parse_args()
-
-    # project_path = args.project_path 
-    # dictionary of all the projects
-
     repositories_folder = config['general']['repositories_folder']
-
-    # walk through the project and extract the project folder names and paths
     repositories_dict = get_folder_paths(repositories_folder)
-
-    # test the similarity between repo name and all the classes within the repo
-
-        
     preprocessor = CodePreprocessor()
     custom_embedder = CustomEmbedder(model=config['models']['embedder'])
     llm = config['models']['llm']
@@ -60,21 +48,31 @@ def main():
             # print(f"Class {class_name} processed successfully...\n")
             project_class_components[class_name] = current_class
         
-        # TODO Using only the most likely domain class at this point, will use the pairs later
-        most_likely_domain_class, second_most_likely_domain_class = custom_embedder.get_two_most_similar_classes(project_name, project_class_components)
+        # TODO: Using only the most likely domain class at this point, will use the pairs later
+        # This is where the entry point loctaor will come into play
+        most_likely_domain_class, second_most_likely_domain_class = detect_project_seed(custom_embedder, project_name, project_class_components)
         print(f"Most likely domain class: {most_likely_domain_class}\n")
         most_likely_domain_components = project_class_components[most_likely_domain_class]
         # delete the entrypoint class from the dictionary and the dataframe
         del project_class_components[most_likely_domain_class]
         df = df[df.class_name != most_likely_domain_class]
 
-        # we will have a lot of heuristics that will come into play
+        # iteration through the classes to compare the similarity
         i = 1
         domain_context = most_likely_domain_components.__str__()
         classification_df = pd.DataFrame(columns=['class_name', 'class_classification', 'class_similarity'])
         # log the prompt and response
         log_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        class_candidate = ""
+        # start the uml-ifaication
+        plantuml_file = open(f"artifacts/class_diagrams/{project_name}.puml", "a")
+        plantuml_file.write(f"@startuml\n")
         while len(project_class_components) > 0:
+            # for the 1st iteration, the entrypoint prompt will be used
+            if i == 1: 
+                # use the entrypoint json file to get the domain context
+                class_candidate = LLMHelper.generate_cooccurence_concepts(domain_context, llm, model, log_time)
+
             print(f"Starting iteration {i}...")
             # Should follow a particular template to ease comparison
             class_candidate = LLMHelper.generate_similar_concepts(domain_context, llm, model, log_time)
@@ -90,7 +88,9 @@ def main():
                 found_class_object.class_classification = ClassCategory.DOMAIN
                 # add the class to the domain context
                 domain_context += " and " + found_class_object.__str__()
-                print(f"Class {found_class_name} added to the domain context...\n")
+                with open(f"artifacts/class_diagrams/{project_name}.puml", "a") as plantuml_file:
+                    plantuml_file.write(f"{found_class_object.to_plantuml()}\n")
+                print(f"Project {project_name} processed successfully...\n")
             else:
                 found_class_object.class_classification = ClassCategory.IMPLEMENTATION
 
@@ -99,12 +99,8 @@ def main():
             del project_class_components[found_class_name]
             df = df[df.class_name != found_class_name]
             i += 1
-
-        # store the dataframe in a csv file
-        classification_df.to_csv(f"artifacts/similarity_scores/{project_name}_similarity_score.csv", index=False)
-        # plot the similarity graph
-
-        print(f"Process completed successfully for project {project_name}...")
+        # closing the plantuml file
+        plantuml_file.write(f"@enduml\n")
 
 
 if __name__ == "__main__":

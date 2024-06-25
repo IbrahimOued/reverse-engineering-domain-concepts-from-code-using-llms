@@ -65,8 +65,7 @@ class ClassComponent:
         return class_sentence
 
     def to_plantuml(self):
-        uml = "@startuml\n"
-        uml += f"class {self.class_name} {{\n"
+        uml = f"class {self.class_name} {{\n"
         
         if self.class_attributes:
             for attribute in self.class_attributes:
@@ -76,6 +75,6 @@ class ClassComponent:
             for method in self.class_methods:
                 uml += f"  {method.method_name}()\n"
         
-        uml += "}\n@enduml"
+        uml += "}"
         
         return uml
