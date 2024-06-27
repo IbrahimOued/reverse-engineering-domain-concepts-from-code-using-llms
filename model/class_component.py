@@ -26,7 +26,7 @@ class AttributeNode:
         return f"[{', '.join(self.attribute_name_tokens)}]"
 
 class ClassCategory(Enum):
-    DOMAIN = "domain",
+    DOMAIN = "domain"
     IMPLEMENTATION = "implementation"
 
 
@@ -61,8 +61,8 @@ class ClassComponent:
         else:
             class_sentence += f"its attributes: {', '.join(attributes_sentences)} and methods: {', '.join(methods_sentences)}"
 
-        # return ', '.join(self.class_name_tokens)
-        return class_sentence
+        # return class_sentence
+        return ', '.join(self.class_name_tokens)
 
     def to_plantuml(self):
         uml = f"class {self.class_name} {{\n"

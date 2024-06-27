@@ -1,0 +1,218 @@
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : current, transaction.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 90
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : saving, account.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : current, account.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 90
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : transaction, service, impl.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: Based on the given elements, transaction, service, impl, I would classify this class as:
+
+classification : implementation class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : application.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : account, service, impl.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : account, controller.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: Classification : Domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : transfer, controller.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : recipient.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : user.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 90
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : role.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : authority.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : admin, service, impl.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : implementation class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : application, test.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : authority, test.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : user, service, impl.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : home, controller.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : implementation class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : request, filter.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : implementation class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : security, config.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : user, role.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : user, controller.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Domain class, score: 90
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : admin, controller.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : implementation class, score: 90
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : user, security, service, impl.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : domain class, score: 80
+
+
+>[user]: Use the following step-by-step instructions to give the classification of a class if it is a domain class or an implementation class.
+Step 1: Here are the main elements of the class to analyze : maven, wrapper, downloader.
+Step 2: Based on the informations evauate this class wether it is a domain class or an implementation class.
+Step 3: I a scale of 1 to 100, how confident are you in the correctness of classification?
+The output should strictly following only this output pattern : "classification : [classification], score: [confidence level]"
+
+>[huggingface]: classification : Implementation class, score: 90
+
+

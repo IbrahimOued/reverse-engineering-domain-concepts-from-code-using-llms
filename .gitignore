@@ -1,6 +1,8 @@
 __pycache__/
 .env
-code_repositories/
+.venv/
+code_repositories/*
+chat_logs/*
 experiments_tracking/
 poetry.lock
 TODO

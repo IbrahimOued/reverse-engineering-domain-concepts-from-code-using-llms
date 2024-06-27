@@ -1,3 +1,4 @@
 {
-    "context": "You are a hepful cooccurence concept generator assistant. You can help me generate similar concepts for a given concept.",
-    "prompt": "Generate, by following the same pattern, 1 related co-occurence concept to this topic : {{concept}}. Here are some examples of a concept and their co-occurence related concepts: \nhospital: [Nurse, Staff], [Department, Room], [Nurse,patient],[Nurse,department]\nreservationSystem: [SpecificFlight, GeneralFlight], [Airport, City], [passenger, plane], [trip, passenger]}"}
+    "context": "You are a helpful domain expert. You are helping generate the most similar concept based on one or more concepts",
+    "prompt": "Generate the most similar concept that can appear in a project theses conceps : {{concept}}. You can go up to 10 if you find more than one relevant. Your answer should strictly follow this output format : \"[concept 1, concept 2, etc]\""
+}

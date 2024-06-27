@@ -13,7 +13,7 @@ class LLMHelper:
             json_prompt = json.load(f)
             context = json_prompt['context']
             prompt = json_prompt['prompt']
-            prompt = prompt.replace("{{class_concept}}", class_concept)
+            prompt = prompt.replace("{{concept}}", class_concept)
             llm_service = LLMService.init_llm(llm, model)
             response = llm_service.generate_llm_response(context=context, prompt=prompt)
 
@@ -38,7 +38,7 @@ class LLMHelper:
             log_file.close()
             return response
 
-    def justify_suggestion(class_str, llm, model, log_time):
+    def eval_suggestion(class_str, llm, model, log_time):
         with open(config['prompts']['justification']) as f:
             json_prompt = json.load(f)
             prompt = json_prompt['prompt']
@@ -47,7 +47,7 @@ class LLMHelper:
             response = llm_service.generate_llm_response(context=class_str, prompt=prompt)
 
             # create a log file to store the class candidate generated
-            log_file = open(f"./artifacts/justification_logs/{log_time}.log", "a")
+            log_file = open(f"./artifacts/eval_logs/{log_time}.log", "a")
             log_file.write(f">[user]: {prompt}\n>[{llm}]: {response}\n\n\n")
             log_file.close()
             return response

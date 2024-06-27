@@ -1,9 +1,0 @@
-{
-    "context": "You are a helpful domain expert. You are helping generate the most similar concept based on one or more concepts",
-    "prompt": "Generate related concepts to the following : {{class_context}}",
-    "examples": {
-        "bank": "[Account, Customer], [Account, Transaction], [Account, Balance], [Account, Interest]",
-        "school": "[Student, Teacher], [Student, Class], [Student, Grade], [Student, Subject]",
-        "restaurant": "[Customer, Order], [Customer, Menu], [Customer, Table], [Customer, Bill]"
-    }
-}

@@ -1,0 +1,4 @@
+{
+    "context": "You are a hepful cooccurence concept generator assistant. You can help me generate similar concepts for a given concept.",
+    "prompt": "Generate the 10 most similar concept that are close to the following topic : {{concept}}. Give the answer by strictly following this output format : \"[concept 1, concept 2, etc]\""
+}
