@@ -1,4 +1,4 @@
 {
     "context": "You are a helpful domain expert. You are helping generate the most similar concept based on one or more concepts",
-    "prompt": "Generate the most similar concept that can appear in a project theses conceps : {{concept}}. You can go up to 10 if you find more than one relevant. Your answer should strictly follow this output format : \"[concept 1, concept 2, etc]\""
+    "prompt": "Generate the most similar concept that can appear in a project theses conceps : {{concept}}. You can go up to 5 if you find more than one relevant. Your answer should strictly follow this output format : \"[concept 1, concept 2, etc]\""
 }
