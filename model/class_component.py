@@ -9,10 +9,10 @@ class MethodNode:
         self.method_name_tokens = method_name_tokens
 
     def __str__(self):
-        return f"[{', '.join(self.method_name_tokens)}]"
+        return f"{self.method_name}"
 
-    def get_methods_tokenized(self):
-        return ', '.join(self.class_methods)
+    def get_method_name_tokens(self):
+        return ', '.join(self.method_name_tokens)
 
 
 class AttributeNode:
@@ -26,14 +26,13 @@ class AttributeNode:
     def __str__(self):
         return f"{self.attribute_name}"
 
-    def get_attributes_tokenized(self):
+    def get_attribute_name_tokenized(self):
         return ', '.join(self.attribute_name_tokens)
 
 class ClassCategory(Enum):
     DOMAIN = "domain"
     IMPLEMENTATION = "implementation"
 
-# TODO: Replace by behaviors 
 
 class ClassComponent:
     class_name: str
@@ -48,27 +47,45 @@ class ClassComponent:
         self.class_attributes = class_attributes
         self.class_methods: MethodNode = class_methods
 
-    def __str__(self):
-        class_sentence = f"{self.class_name} [{self.get_classname_tokens()}] "
-        attributes_sentences = []
+    def get_class_definition(self):
+        class_sentence = f"concept {self.class_name} "
+        attribute_sentences = []
         methods_sentences = []
         if len(self.class_attributes) > 0:
             for attribute in self.class_attributes:
-                attributes_sentences.append(f"{attribute}")
+                attribute_sentences.append(f"{attribute}")
         if len(self.class_methods) > 0:
             for method in self.class_methods:
                 methods_sentences.append(f"{method}")
-        if len(attributes_sentences) == 0 and len(methods_sentences) == 0:
-            class_sentence += "no properities nor behaviors"
-        elif len(attributes_sentences) == 0 and len(methods_sentences) > 0:
-            class_sentence += f"no properties and characterized by these behaviors: {', '.join(methods_sentences)}"
+        if len(attribute_sentences) == 0 and len(methods_sentences) == 0:
+            class_sentence += "with no property nor behavior"
+        elif len(attribute_sentences) == 0 and len(methods_sentences) > 0:
+            class_sentence += f"with only these behaviors: {', '.join(methods_sentences)}"
         else:
-            class_sentence += f"represented by these properties: {', '.join(attributes_sentences)} and characterized by these behaviors: {', '.join(methods_sentences)}"
+            class_sentence += f"with these properties: {', '.join(attribute_sentences)} and these behaviors: {', '.join(methods_sentences)}"
 
         return class_sentence
         # return ', '.join(self.class_name_tokens)
 
-    def get_classname_tokens(self):
+    def get_class_formatted(self):
+        class_formatted = f"concept: [{self.class_name}] with "
+        attribute_sentences = []
+        methods_sentences = []
+        if len(self.class_attributes) > 0:
+            for attribute in self.class_attributes:
+                attribute_sentences.append(f"{attribute}")
+        if len(self.class_methods) > 0:
+            for method in self.class_methods:
+                methods_sentences.append(f"{method}")
+        if len(attribute_sentences) == 0 and len(methods_sentences) == 0:
+            class_formatted += "properties: [] and behaviors: []"
+        elif len(attribute_sentences) == 0 and len(methods_sentences) > 0:
+            class_formatted += f"behaviors: [{', '.join(methods_sentences)}]"
+        else:
+            class_formatted += f"properties: [{', '.join(attribute_sentences)}] and behaviors: [{', '.join(methods_sentences)}]"
+        return class_formatted
+
+    def get_class_name_tokens(self):
         # return "[" + ', '.join(self.class_name_tokens) + "]"
         return ', '.join(self.class_name_tokens)
 

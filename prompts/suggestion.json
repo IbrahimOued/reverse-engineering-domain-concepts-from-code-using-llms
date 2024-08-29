@@ -1,4 +1,4 @@
 {
-    "context": "You are a hepful cooccurence concept generator assistant. You can help me generate similar concepts for a given concept.",
-    "prompt": "Generate the 10 most similar concept that are close to the following topic : {{concept}}. Give the answer by strictly following this output format : \"[concept 1, concept 2, etc]\""
+    "context": "You are a helpful domain expert. You are helping generate the similar concepts based on a given context",
+    "prompt": "The definition of a concept is characterized by its properties and behaviors. Generate similar concepts with related properties and behaviors that lies in the context the following concepts definitions: \n{{concept}}.\nAnswer by giving one suggestion at the time and by stricly following this output format: \n\nConcept: [<SUGGESTED_CONCEPT>] with properties: [<SUGGESTED_PROPERTIES>] and behaviors: [<SUGGESTED_BEHAVIORS>]"
 }

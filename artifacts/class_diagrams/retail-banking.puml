@@ -1,18 +1,4 @@
 @startuml
-class SavingsAccount {
-  id
-  accountNumber
-  accountBalance
-  savingsTransactionList
-  getId()()
-  setId(Long)()
-  getAccountNumber()()
-  setAccountNumber(int)()
-  getAccountBalance()()
-  setAccountBalance(BigDecimal)()
-  getSavingsTransactionList()()
-  setSavingsTransactionList(List)()
-}
 class CurrentTransaction {
   id
   date
@@ -53,55 +39,6 @@ class CurrentAccount {
   getCurrentTransactionList()()
   setCurrentTransactionList(List)()
 }
-class User {
-  serialVersionUID
-  userId
-  username
-  password
-  firstName
-  lastName
-  aadhaarId
-  email
-  phone
-  enabled
-  currentAccount
-  savingsAccount
-  recipientList
-  userRoles
-  getUserRoles()()
-  setUserRoles(Set)()
-  getUserId()()
-  setUserId(Long)()
-  getUsername()()
-  setUsername(String)()
-  getFirstName()()
-  setFirstName(String)()
-  getLastName()()
-  setLastName(String)()
-  getEmail()()
-  setEmail(String)()
-  getPhone()()
-  setPhone(String)()
-  getRecipientList()()
-  setRecipientList(List)()
-  getPassword()()
-  setPassword(String)()
-  getCurrentAccount()()
-  setCurrentAccount(CurrentAccount)()
-  getSavingsAccount()()
-  setSavingsAccount(SavingsAccount)()
-  toString()()
-  getAuthorities()()
-  isAccountNonExpired()()
-  isAccountNonLocked()()
-  isCredentialsNonExpired()()
-  isEnabled()()
-  setEnabled(boolean)()
-  getAadhaarId()()
-  setAadhaarId(String)()
-}
-@enduml
-@startuml
 class SavingsAccount {
   id
   accountNumber
@@ -116,71 +53,15 @@ class SavingsAccount {
   getSavingsTransactionList()()
   setSavingsTransactionList(List)()
 }
-class CurrentTransaction {
-  id
-  date
-  description
-  type
-  status
-  amount
-  availableBalance
-  currentAccount
-  getId()()
-  setId(Long)()
-  getDate()()
-  setDate(Date)()
-  getDescription()()
-  setDescription(String)()
-  getType()()
-  setType(String)()
-  getStatus()()
-  setStatus(String)()
-  getAmount()()
-  setAmount(double)()
-  getAvailableBalance()()
-  setAvailableBalance(BigDecimal)()
-  getCurrentAccount()()
-  setCurrentAccount(CurrentAccount)()
-}
-class CurrentAccount {
-  id
-  accountNumber
-  accountBalance
-  currentTransactionList
-  getId()()
-  setId(Long)()
-  getAccountNumber()()
-  setAccountNumber(int)()
-  getAccountBalance()()
-  setAccountBalance(BigDecimal)()
-  getCurrentTransactionList()()
-  setCurrentTransactionList(List)()
-}
-class AccountServiceImpl {
-  currentAccountDao
-  savingsAccountDao
+class AccountController {
   userService
+  accountService
   transactionService
-  createCurrentAccount()()
-  createSavingsAccount()()
-  deposit(String, double, Principal)()
-  withdraw(String, double, Principal)()
-  accountGen()()
-}
-class UserRole {
-  userRoleId
-  user
-  role
-  getUserRoleId()()
-  setUserRoleId(long)()
-  getUser()()
-  setUser(User)()
-  getRole()()
-  setRole(Role)()
-}
-class UserSecurityServiceImpl {
-  logger
-  userDao
-  loadUserByUsername(String)()
+  currentAccount(Model, Principal)()
+  savingsAccount(Model, Principal)()
+  deposit(Model)()
+  depositPOST(String, String, Principal)()
+  withdraw(Model)()
+  withdrawPOST(String, String, Principal)()
 }
 @enduml

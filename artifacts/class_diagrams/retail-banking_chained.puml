@@ -1,0 +1,238 @@
+@startuml
+class CurrentTransaction {
+  id
+  date
+  description
+  type
+  status
+  amount
+  availableBalance
+  currentAccount
+  getId()()
+  setId(Long)()
+  getDate()()
+  setDate(Date)()
+  getDescription()()
+  setDescription(String)()
+  getType()()
+  setType(String)()
+  getStatus()()
+  setStatus(String)()
+  getAmount()()
+  setAmount(double)()
+  getAvailableBalance()()
+  setAvailableBalance(BigDecimal)()
+  getCurrentAccount()()
+  setCurrentAccount(CurrentAccount)()
+}
+class SavingsAccount {
+  id
+  accountNumber
+  accountBalance
+  savingsTransactionList
+  getId()()
+  setId(Long)()
+  getAccountNumber()()
+  setAccountNumber(int)()
+  getAccountBalance()()
+  setAccountBalance(BigDecimal)()
+  getSavingsTransactionList()()
+  setSavingsTransactionList(List)()
+}
+class CurrentAccount {
+  id
+  accountNumber
+  accountBalance
+  currentTransactionList
+  getId()()
+  setId(Long)()
+  getAccountNumber()()
+  setAccountNumber(int)()
+  getAccountBalance()()
+  setAccountBalance(BigDecimal)()
+  getCurrentTransactionList()()
+  setCurrentTransactionList(List)()
+}
+class AccountServiceImpl {
+  currentAccountDao
+  savingsAccountDao
+  userService
+  transactionService
+  createCurrentAccount()()
+  createSavingsAccount()()
+  deposit(String, double, Principal)()
+  withdraw(String, double, Principal)()
+  accountGen()()
+}
+class TransactionServiceImpl {
+  userService
+  currentTransactionDao
+  savingsTransactionDao
+  currentAccountDao
+  savingsAccountDao
+  recipientDao
+  findCurrentTransactionList(String)()
+  findSavingsTransactionList(String)()
+  saveCurrentDepositTransaction(CurrentTransaction)()
+  saveSavingsDepositTransaction(SavingsTransaction)()
+  saveCurrentWithdrawTransaction(CurrentTransaction)()
+  saveSavingsWithdrawTransaction(SavingsTransaction)()
+  betweenAccountsTransfer(String, String, String, CurrentAccount, SavingsAccount)()
+  findRecipientList(Principal)()
+  saveRecipient(Recipient)()
+  findRecipientByName(String)()
+  deleteRecipientByName(String)()
+  toSomeoneElseTransfer(Recipient, String, String, CurrentAccount, SavingsAccount)()
+}
+class AccountController {
+  userService
+  accountService
+  transactionService
+  currentAccount(Model, Principal)()
+  savingsAccount(Model, Principal)()
+  deposit(Model)()
+  depositPOST(String, String, Principal)()
+  withdraw(Model)()
+  withdrawPOST(String, String, Principal)()
+}
+class TransferController {
+  transactionService
+  userService
+  betweenAccounts(Model)()
+  betweenAccountsPost(String, String, String, Principal)()
+  recipient(Model, Principal)()
+  recipientPost(Recipient, Principal)()
+  recipientEdit(String, Model, Principal)()
+  recipientDelete(String, Model, Principal)()
+  toSomeoneElse(Model, Principal)()
+  toSomeoneElsePost(String, String, String, Principal)()
+}
+class User {
+  serialVersionUID
+  userId
+  username
+  password
+  firstName
+  lastName
+  aadhaarId
+  email
+  phone
+  enabled
+  currentAccount
+  savingsAccount
+  recipientList
+  userRoles
+  getUserRoles()()
+  setUserRoles(Set)()
+  getUserId()()
+  setUserId(Long)()
+  getUsername()()
+  setUsername(String)()
+  getFirstName()()
+  setFirstName(String)()
+  getLastName()()
+  setLastName(String)()
+  getEmail()()
+  setEmail(String)()
+  getPhone()()
+  setPhone(String)()
+  getRecipientList()()
+  setRecipientList(List)()
+  getPassword()()
+  setPassword(String)()
+  getCurrentAccount()()
+  setCurrentAccount(CurrentAccount)()
+  getSavingsAccount()()
+  setSavingsAccount(SavingsAccount)()
+  toString()()
+  getAuthorities()()
+  isAccountNonExpired()()
+  isAccountNonLocked()()
+  isCredentialsNonExpired()()
+  isEnabled()()
+  setEnabled(boolean)()
+  getAadhaarId()()
+  setAadhaarId(String)()
+}
+class AdminController {
+  userService
+  transactionService
+  roleDao
+  profile(Principal, Model)()
+  profileActivator(String, Model, Principal)()
+  profileSelfDeactivator(String, Model, Principal)()
+  currentAccount(String, Model, Principal)()
+  savingsAccount(String, Model, Principal)()
+  signup(Model, Principal)()
+  signupPost(User, Model, Principal)()
+}
+class Recipient {
+  id
+  name
+  email
+  phone
+  accountNumber
+  description
+  user
+  getId()()
+  setId(Long)()
+  getName()()
+  setName(String)()
+  getEmail()()
+  setEmail(String)()
+  getPhone()()
+  setPhone(String)()
+  getAccountNumber()()
+  setAccountNumber(String)()
+  getDescription()()
+  setDescription(String)()
+  getUser()()
+  setUser(User)()
+}
+class Role {
+  roleId
+  name
+  userRoles
+  getRoleId()()
+  setRoleId(int)()
+  getName()()
+  setName(String)()
+  getUserRoles()()
+  setUserRoles(Set)()
+}
+class UserServiceImpl {
+  logger
+  userDao
+  roleDao
+  passwordEncoder
+  accountService
+  save(User)()
+  findByUsername(String)()
+  findByEmail(String)()
+  createUser(User, Set)()
+  checkUserExists(String, String)()
+  checkUsernameExists(String)()
+  checkEmailExists(String)()
+  saveUser(User)()
+  findUserList()()
+  enableUser(String)()
+  disableUser(String)()
+}
+class HomeController {
+  PATH
+  userService
+  roleDao
+  home()()
+  index()()
+  signup(Model)()
+  signupPost(User, Model)()
+  userFront(Principal, Model)()
+  error()()
+  getErrorPath()()
+}
+class RequestFilter {
+  doFilter(ServletRequest, ServletResponse, FilterChain)()
+  init(FilterConfig)()
+  destroy()()
+}
+@enduml

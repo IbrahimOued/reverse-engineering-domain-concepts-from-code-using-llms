@@ -16,7 +16,7 @@ class HuggingFaceService(InterfaceLLM):
         return cls
 
     @classmethod
-    def generate_llm_response(cls, context, prompt, stream=False, max_tokens=512, stop="<|eot_id|>", frequency_penalty=0, presence_penalty=0, temperature=.7, top_p=.9):
+    def generate_llm_response(cls, context, prompt, stream=False, max_tokens=2048, stop="<|eot_id|>", frequency_penalty=0, presence_penalty=0, temperature=.7, top_p=.9):
 
         HF_TOKEN = os.getenv('HF_TOKEN')
         HfFolder.save_token(HF_TOKEN)
@@ -51,4 +51,15 @@ class HuggingFaceService(InterfaceLLM):
         )
 
         generated_text = outputs[0]['generated_text'][len(prompt):]
+        # Find the starting index of the square brackets
+        # start_index = generated_text.find("[")
+
+        # # Find the ending index of the square brackets
+        # end_index = generated_text.find("]")
+
+        # # Extract the substring if both indexes are found
+        # if start_index != -1 and end_index != -1:
+        #     extracted_text = generated_text[start_index + 1:end_index]  # +1 to skip the opening bracket
+        #     return extracted_text
+        # else:
         return generated_text

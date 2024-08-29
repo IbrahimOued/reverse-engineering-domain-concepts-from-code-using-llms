@@ -37,7 +37,7 @@ def extract_signatures(java_file):
                 method_signature = method.name + "(" + ", ".join(param.type.name for param in method.parameters) + ")"
                 methods.append(method_signature)
 
-    return class_name, class_attributes, methods# , method_attributes
+    return class_name, class_attributes, methods # , method_attributes
 
 
 def create_signatures_dataframe(project_path):

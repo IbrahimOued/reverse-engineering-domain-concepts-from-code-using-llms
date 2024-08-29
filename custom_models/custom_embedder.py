@@ -20,7 +20,9 @@ class CustomEmbedder:
         
 
 
-    def calculate_similarity(self, class_1_context, class_2_context):        
+    def calculate_similarity(self, class_1_context, class_2_context):
+        with open(f"artifacts/comparison/comparison.txt", "a") as file:
+            file.write(f"Comparing: \n{class_1_context} with the {class_2_context}\n")
         class_1_emb = self.embedding_model.encode(class_1_context, convert_to_tensor=True)
         class_2_emb = self.embedding_model.encode(class_2_context, convert_to_tensor=True)
         cosine_scores = util.cos_sim(class_1_emb, class_2_emb)

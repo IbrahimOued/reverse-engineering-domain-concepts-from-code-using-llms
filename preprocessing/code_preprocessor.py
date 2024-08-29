@@ -1,3 +1,4 @@
+import re
 import nltk
 nltk.download('wordnet')
 from nltk import PorterStemmer
@@ -103,3 +104,15 @@ class CodePreprocessor:
             merged_list.append(current_word)
 
         return merged_list
+
+    @classmethod
+    def extract_suggestion(cls, suggestion):
+        pattern = r"Concept: \[.*?\] with properties: \[.*?\] and behaviors: \[.*?\]"
+
+        match = re.search(pattern, suggestion)
+
+        if match:
+            extracted_suggestion = match.group(0)
+            return extracted_suggestion
+        else:
+            return suggestion

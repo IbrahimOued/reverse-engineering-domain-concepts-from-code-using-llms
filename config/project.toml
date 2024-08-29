@@ -1,6 +1,6 @@
 # project.toml
 [general]
-domain_threshold = 0.6
+domain_threshold = 0.8
 repositories_folder = "code_repositories"
 HF_DATASETS_CACHE="/data/rech/ouedraoi"
 

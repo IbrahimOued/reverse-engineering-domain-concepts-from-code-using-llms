@@ -37,13 +37,10 @@ def detect_project_seed(embedder, project_name, class_list):
 
     # get the class with the highest number of votes
     most_likely_domain_class = max(class_votes, key=class_votes.get)
-    # get the second most likely class
-    del class_votes[most_likely_domain_class]
-    if len(class_votes) == 0:
-        return most_likely_domain_class, None
-    second_most_likely_domain_class = max(class_votes, key=class_votes.get)
-    return most_likely_domain_class, second_most_likely_domain_class
-
+    # create an initial log to store the seed detection
+    with open("artifacts/seed_logs/seed_detection_log.txt", "a") as log_file:
+        log_file.write(f"{project_name} - {most_likely_domain_class}")
+    return most_likely_domain_class
 
 
 def detect_using_class_name(embedder, project_name, class_list):

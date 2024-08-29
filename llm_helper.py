@@ -23,6 +23,7 @@ class LLMHelper:
             log_file.close()
             return response
 
+    # TODO: Not used for now
     def generate_cooccurence_concepts(context, llm, model, log_time):
         # import the prompt config file
         with open(config['prompts']['entrypoint']) as f:
